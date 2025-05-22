@@ -4,6 +4,7 @@ from psycopg2 import OperationalError, Error
 import logging
 from datetime import datetime
 import os
+import fontTools.ttLib
 
 # ==================== КОНФИГУРАЦИЯ ====================
 DB_CONFIG = {
@@ -29,16 +30,12 @@ SQL_QUERIES = {
     """
 }
 
-# Путь к шрифту
-FONT_PATH = os.path.join("assets", "cruinnmedium.ttf")
-FONT_SIZE = 16
-
-# Инициализация логгера
+# Инициализация логгера с поддержкой UTF-8
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('db_operations.log'),
+        logging.FileHandler('db_operations.log', encoding='utf-8'),
         logging.StreamHandler()
     ]
 )
@@ -51,8 +48,6 @@ all_layers = []
 left_panel_selected_map = None
 right_panel_selected_map = None
 selected_layers = {"left": None, "right": None}
-default_font = None
-
 
 # ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
 def log_query(query, params=None):
@@ -65,14 +60,12 @@ def log_query(query, params=None):
     logger.info(log_message)
     print(log_message)
 
-
 def toggle_fullscreen():
     """Переключение полноэкранного режима"""
     if dpg.is_viewport_maximized():
         dpg.maximize_viewport()
     else:
         dpg.maximize_viewport()
-
 
 def show_window(sender, app_data, user_data):
     """Показать выбранное окно и скрыть другие"""
@@ -83,23 +76,26 @@ def show_window(sender, app_data, user_data):
         else:
             dpg.hide_item(window)
 
-
 def update_count_label(panel_side, count):
     """Обновление метки с количеством элементов"""
     dpg.configure_item(f"{panel_side}_count_label", default_value=f"Количество: {count}")
 
-
-def load_font():
-    """Загрузка пользовательского шрифта"""
-    global default_font
-    if os.path.exists(FONT_PATH):
-        with dpg.font_registry():
-            default_font = dpg.add_font(FONT_PATH, FONT_SIZE)
-        return True
-    else:
-        logger.warning(f"Файл шрифта не найден: {FONT_PATH}")
+def check_font_cyrillic_support(font_path):
+    """Проверка поддержки кириллицы в шрифте"""
+    try:
+        font = fontTools.ttLib.TTFont(font_path)
+        cmap = font.get("cmap")
+        unicode_cmap = cmap.getcmap(3, 1)  # Windows Unicode BMP cmap
+        if unicode_cmap:
+            # Проверяем наличие кириллических символов (U+0400 to U+04FF)
+            for char_code in range(0x0400, 0x04FF + 1):
+                if char_code in unicode_cmap.cmap:
+                    return True
+        logger.warning(f"Шрифт {font_path} не поддерживает кириллицу")
         return False
-
+    except Exception as e:
+        logger.error(f"Ошибка проверки шрифта {font_path}: {e}")
+        return False
 
 # ==================== ОСНОВНЫЕ ФУНКЦИИ ====================
 def connect_to_db():
@@ -147,7 +143,6 @@ def connect_to_db():
         dpg.configure_item("db_status_text", default_value=error_msg, color=(255, 0, 0))
         return False
 
-
 def update_layers_list(panel_side, map_id=None):
     """Обновление списка слоев для выбранной карты"""
     if map_id is None:
@@ -163,7 +158,6 @@ def update_layers_list(panel_side, map_id=None):
     update_count_label(panel_side, len(layers))
 
     logger.info(f"Обновлен список слоев для {panel_side} панели (map_id={map_id}), количество: {len(layers)}")
-
 
 def on_map_select(sender, app_data, user_data):
     """Обработчик выбора карты в комбо-боксе"""
@@ -183,7 +177,6 @@ def on_map_select(sender, app_data, user_data):
         right_panel_selected_map = selected_map[0]
         update_layers_list("right")
 
-
 def on_layer_select(sender, app_data, user_data):
     """Обработчик выбора слоя"""
     panel_side = user_data
@@ -192,7 +185,6 @@ def on_layer_select(sender, app_data, user_data):
     except (ValueError, TypeError):
         selected_layers[panel_side] = None
     logger.debug(f"Выбран слой в {panel_side} панели: индекс {selected_layers[panel_side]}")
-
 
 def check_layer_exists(map_id, name_ru, layer_type):
     """Проверка существования слоя в целевой карте"""
@@ -204,7 +196,6 @@ def check_layer_exists(map_id, name_ru, layer_type):
     except Error as e:
         logger.error(f"Ошибка при проверке слоя: {e}")
         return False
-
 
 def move_layers_right():
     """Добавление слоёв в правую карту с проверкой дубликатов"""
@@ -280,17 +271,34 @@ def move_layers_right():
                            default_value=error_msg,
                            color=(255, 0, 0))
 
-
 # ==================== ГЛАВНЫЙ ИНТЕРФЕЙС ====================
 def create_gui():
     dpg.create_context()
-
-    # Загрузка шрифта
-    font_loaded = load_font()
-
-    # Создание viewport
     dpg.create_viewport(title='Управление слоями карт', width=1920, height=1080)
     dpg.maximize_viewport()
+
+    # Установка UTF-8 для поддержки кириллицы
+    dpg.set_global_font_scale(1.0)  # Масштаб шрифта, если нужно
+
+    # Font Registry
+    with dpg.font_registry():
+        # Load the custom font from the assets folder
+        font_path = os.path.join(os.path.dirname(__file__), "assets", "cruinnmedium.ttf")
+        try:
+            # Проверка поддержки кириллицы
+            if check_font_cyrillic_support(font_path):
+                custom_font = dpg.add_font(font_path, 16)  # Размер шрифта 16
+                logger.info("Custom font 'cruinnmedium.ttf' loaded successfully with Cyrillic support")
+            else:
+                custom_font = None
+                logger.warning("Custom font does not support Cyrillic, falling back to default font")
+        except Exception as e:
+            custom_font = None
+            logger.error(f"Failed to load font 'cruinnmedium.ttf': {e}")
+
+    # Bind the font globally (если шрифт загружен и поддерживает кириллицу)
+    if custom_font:
+        dpg.bind_font(custom_font)
 
     # Главное меню
     with dpg.viewport_menu_bar():
@@ -305,11 +313,9 @@ def create_gui():
             with dpg.group(width=300):
                 dpg.add_input_text(label="Хост", tag="host_input", default_value=DB_CONFIG['host'], width=250)
                 dpg.add_input_text(label="Порт", tag="port_input", default_value=DB_CONFIG['port'], width=250)
-                dpg.add_input_text(label="База данных", tag="dbname_input", default_value=DB_CONFIG['dbname'],
-                                   width=250)
+                dpg.add_input_text(label="База данных", tag="dbname_input", default_value=DB_CONFIG['dbname'], width=250)
             with dpg.group(width=300):
-                dpg.add_input_text(label="Пользователь", tag="username_input", default_value=DB_CONFIG['user'],
-                                   width=250)
+                dpg.add_input_text(label="Пользователь", tag="username_input", default_value=DB_CONFIG['user'], width=250)
                 dpg.add_input_text(label="Пароль", tag="password_input", password=True, width=250)
                 dpg.add_button(label="Подключиться", callback=connect_to_db, width=250)
         dpg.add_text(tag="db_status_text", default_value="")
@@ -362,17 +368,12 @@ def create_gui():
                 )
                 dpg.add_text(tag="right_count_label", default_value="Количество: 0")
 
-    # Применение шрифта ко всем элементам
-    if font_loaded:
-        dpg.bind_font(default_font)
-
     # Запуск приложения
     dpg.setup_dearpygui()
     dpg.show_viewport()
     show_window(None, None, "connection_window")
     dpg.start_dearpygui()
     dpg.destroy_context()
-
 
 if __name__ == "__main__":
     logger.info("Запуск приложения")
