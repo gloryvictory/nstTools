@@ -1,0 +1,62 @@
+Id,MapId,Name,Url,Type,IsActive,IsExpanded,DefaultOpacity,LayerOrder,IsBaseMap,IsDeleted,IsSnappable,IsUnsearchable,GroupLayer,IsReestr,IsService,IsUserLayer
+100,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+98,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+96,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+94,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+93,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+86,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,8,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+83,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,2,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+104,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,false,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+174,1,waze,https://worldtiles1.waze.com/tiles/{z}/{x}/{y}.png,xyz,false,false,0,22,true,false,false,false,BACKGROUND:waze,false,false,false
+135,1,MapBox космоснисмки,https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.webp?sku=101S0AiAdllT3&access_token=pk.eyJ1IjoiYW5kcmVhc2t1bmRpZyIsImEiOiJja3ZxcnlmNXc2ZzUwMnFva2F2a3Q1azU5In0.NrvCU8OKlkwJOVFOgZzTzA,xyz,false,false,0,5,true,false,false,true,BACKGROUND:MapBoxkosmosnismki,false,false,false
+1,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,1,0,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+129,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,3,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+149,1,Гугл,https://mt0.google.com/vt/v=3.2&lyrs=m&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,18,true,false,false,true,BACKGROUND:Gugl,false,false,false
+119,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,13,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+121,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,11,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+122,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,3,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+123,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,4,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+124,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,4,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+125,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,3,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+126,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,3,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+128,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,3,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+137,1,ЕЭКО,https://pkk.rosreestr.ru/arcgis/rest/services/BaseMaps/BaseMap/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,16,true,false,false,true,BACKGROUND:EEKO,false,false,false
+166,1,MapBox Satellite,https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.webp?sku=101S0AiAdllT3&access_token=pk.eyJ1IjoiYW5kcmVhc2t1bmRpZyIsImEiOiJja3ZxcnlmNXc2ZzUwMnFva2F2a3Q1azU5In0.NrvCU8OKlkwJOVFOgZzTzA,xyz,false,false,0,4,true,false,false,false,BACKGROUND:MapBoxSatellite,false,false,false
+132,1,ESRI Physical,https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,14,true,false,false,true,BACKGROUND:ESRIPhysical,false,false,false
+133,1,OpenTopoMap,https://tile.opentopomap.org/{z}/{x}/{y}.png,xyz,false,false,0,15,true,false,false,true,BACKGROUND:OpenTopoMap,false,false,false
+131,1,MapBox космоснисмки,https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.webp?sku=101S0AiAdllT3&access_token=pk.eyJ1IjoiYW5kcmVhc2t1bmRpZyIsImEiOiJja3ZxcnlmNXc2ZzUwMnFva2F2a3Q1azU5In0.NrvCU8OKlkwJOVFOgZzTzA,xyz,false,false,0,13,true,false,false,true,BACKGROUND:MapBoxkosmosnismki,false,false,false
+130,1,2ГИС,https://tile2.maps.2gis.com/tiles?x={x}&y={y}&z={z}&v=1.1,xyz,false,false,0,12,true,false,false,true,BACKGROUND:2GIS,false,false,false
+127,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,3,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+23,1,2GIS,https://tile2.maps.2gis.com/tiles?x={x}&y={y}&z={z}&v=1.1,xyz,false,false,0,15,true,false,false,true,BACKGROUND:2GIS,false,false,false
+71,1,EKS,https://nspd.gov.ru/api/aeggis/v2/235/wmts/{z}/{x}/{y}.png,xyz,true,false,0,12,true,false,false,true,BACKGROUND:EKS,false,false,false
+59,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+148,1,google_streetmap_ru,https://mt0.google.com/vt/v=3.2&lyrs=m&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,17,true,false,false,true,BACKGROUND:googlestreetmapru,false,false,false
+25,1,ESRI Satellite,https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,17,true,false,false,true,BACKGROUND:ESRISatellite,false,false,false
+142,1,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,5,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+185,2,esri_names_and_borders,http://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places_Alternate/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,25,true,false,false,false,BACKGROUND:esrinamesandborders,false,false,false
+186,2,esri_names_and_borders_dark,http://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,26,true,false,false,false,BACKGROUND:esrinamesandbordersdark,false,false,false
+187,2,esri_roads,http://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,27,true,false,false,false,BACKGROUND:esriroads,false,false,false
+188,2,esri_map,http://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,28,true,false,false,false,BACKGROUND:esrimap,false,false,false
+189,2,esri_streetmap,http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,29,true,false,false,false,BACKGROUND:esristreetmap,false,false,false
+190,2,esri_relief,http://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,30,true,false,false,false,BACKGROUND:esrirelief,false,false,false
+191,2,esri_relief_dark,http://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade_Dark/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,31,true,false,false,false,BACKGROUND:esrireliefdark,false,false,false
+192,2,esri_terrain_labels,https://services.arcgisonline.com/arcgis/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,32,true,false,false,false,BACKGROUND:esriterrainlabels,false,false,false
+193,2,esri_light_gray,https://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,33,true,false,false,false,BACKGROUND:esrilightgray,false,false,false
+194,2,esri_firefly,https://fly.maptiles.arcgis.com/arcgis/rest/services/World_Imagery_Firefly/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,34,true,false,false,false,BACKGROUND:esrifirefly,false,false,false
+200,2,google_map_ru,https://mt0.google.com/vt/v=3.2&lyrs=r&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,35,true,false,false,false,BACKGROUND:googlemapru,false,false,false
+201,2,google_terrain_ru,https://mt0.google.com/vt/v=3.2&lyrs=p&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,36,true,false,false,false,BACKGROUND:googleterrainru,false,false,false
+202,2,google_satellite,https://mt0.google.com/vt/v=3.2&lyrs=s&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,37,true,false,false,false,BACKGROUND:googlesatellite,false,false,false
+203,2,google_hybrid_ru,https://mt0.google.com/vt/v=3.2&lyrs=y&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,38,true,false,false,false,BACKGROUND:googlehybridru,false,false,false
+204,2,google_schema_ru,https://mt0.google.com/vt/v=3.2&lyrs=h&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,39,true,false,false,false,BACKGROUND:googleschemaru,false,false,false
+205,2,google_relief,https://mt0.google.com/vt/v=3.2&lyrs=t&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,40,true,false,false,false,BACKGROUND:googlerelief,false,false,false
+167,2,2GIS,https://tile2.maps.2gis.com/tiles?x={x}&y={y}&z={z}&v=1.1,xyz,false,false,0,5,true,false,false,false,BACKGROUND:2GIS,false,false,false
+168,2,Гугл,https://mt0.google.com/vt/v=3.2&lyrs=m&hl=ru&x={x}&y={y}&z={z},xyz,false,false,0,6,true,false,false,false,BACKGROUND:Gugl,false,false,false
+169,2,ESRI Physical,https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,7,true,false,false,false,BACKGROUND:ESRIPhysical,false,false,false
+22,2,ESRI Physical,https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x},xyz,false,false,0,14,true,false,false,true,BACKGROUND:ESRIPhysical,false,false,false
+210,2,test,http://api.geosition.com/tile/osm-bright-3006/{z}/{x}/{y}.png,xyz,false,false,0,41,true,false,false,false,BACKGROUND:test,false,false,false
+24,2,MapBox Satellite,https://api.mapbox.com/v4/mapbox.satellite/{z}/{x}/{y}.webp?sku=101S0AiAdllT3&access_token=pk.eyJ1IjoiYW5kcmVhc2t1bmRpZyIsImEiOiJja3ZxcnlmNXc2ZzUwMnFva2F2a3Q1azU5In0.NrvCU8OKlkwJOVFOgZzTzA,xyz,false,false,0,16,true,false,false,true,BACKGROUND:MapBoxSatellite,false,false,false
+2,2,OpenTopoMap,https://tile.opentopomap.org/{z}/{x}/{y}.png,xyz,false,false,0,1,true,false,false,true,BACKGROUND:OpenTopoMap,false,false,false
+102,2,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+106,2,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,1,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+109,2,OpenStreetMap,https://{a-c}.tile.openstreetmap.org/{z}/{x}/{y}.png,xyz,true,false,0,2,true,false,false,true,BACKGROUND:OpenStreetMap,false,false,false
+171,2,Digimap,https://tile.digimap.ru/rumap/{z}/{x}/{y}.png?guid=DDC7AEA4-1BDA-1019-A30D-1CD07F74BEED,xyz,false,false,0,19,true,false,false,false,BACKGROUND:Digimap,false,false,false
